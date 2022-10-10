@@ -73,7 +73,7 @@ class ProfileFragment : Fragment() {
         viewModel.updateApiUser(id, name, username, password, age, address)
         viewModel.updateLiveDataUser().observe(this.requireActivity(), {
             if (it != null){
-                Toast.makeText(this.requireActivity(), "Update Data Success", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.requireActivity(), "Data Update Successfully", Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -83,18 +83,18 @@ class ProfileFragment : Fragment() {
 
         builder.setTitle("Logout")
 
-        builder.setMessage("Apakah Anda yakin untuk Keluar ?")
+        builder.setMessage("Are You Sure Want To Loguot?")
 
-        builder.setNegativeButton("Tidak"){dialogInterface, which ->
-            Toast.makeText(requireActivity(),"Tidak", Toast.LENGTH_LONG).show()
+        builder.setNegativeButton("No"){dialogInterface, which ->
+            Toast.makeText(requireActivity(),"No", Toast.LENGTH_LONG).show()
         }
 
-        builder.setPositiveButton("Ya"){dialogInterface, which->
+        builder.setPositiveButton("Yes"){dialogInterface, which->
             startActivity(Intent(requireActivity(), LoginActivity::class.java))
             val saveUser = sharedPreferences.edit()
             saveUser.clear()
             saveUser.apply()
-            Toast.makeText(requireActivity(),"Anda Logout", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireActivity(),"Logout Succesfully", Toast.LENGTH_LONG).show()
         }
         val alertDialog: AlertDialog = builder.create()
         alertDialog.setCancelable(false)
