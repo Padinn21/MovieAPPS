@@ -83,7 +83,7 @@ class ProfileFragment : Fragment() {
 
         builder.setTitle("Logout")
 
-        builder.setMessage("Are You Sure Want To Loguot? ?")
+        builder.setMessage("Are You Sure Want To Loguot?")
 
         builder.setNegativeButton("No"){dialogInterface, which ->
             Toast.makeText(requireActivity(),"No", Toast.LENGTH_LONG).show()
