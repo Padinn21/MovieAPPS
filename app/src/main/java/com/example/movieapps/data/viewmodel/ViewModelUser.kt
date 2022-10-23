@@ -4,12 +4,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.movieapps.data.model.DataUser
 import com.example.movieapps.data.model.ResponseUserItem
+import com.example.movieapps.data.network.RestfulUser
 import com.example.movieapps.data.network.RetrofitUser
+import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class ViewModelUser : ViewModel() {
+@HiltViewModel
+class ViewModelUser @Inject constructor(val api: RestfulUser) : ViewModel() {
     var getLdUser : MutableLiveData<List<ResponseUserItem>?> = MutableLiveData()
     var postLDUser: MutableLiveData<ResponseUserItem?> = MutableLiveData()
     var updLDUser: MutableLiveData<ResponseUserItem>
@@ -37,7 +41,7 @@ class ViewModelUser : ViewModel() {
     }
 
     fun callGetUser() {
-        RetrofitUser.instance.getAllUser()
+        api.getAllUser()
             .enqueue(object  : Callback<List<ResponseUserItem>> {
                 override fun onResponse(
                     call: Call<List<ResponseUserItem>>,
@@ -62,7 +66,7 @@ class ViewModelUser : ViewModel() {
                      password: String,
                      age: String,
                      address: String) {
-        RetrofitUser.instance.postUser(DataUser(name, username, password,age, address))
+        api.postUser(DataUser(name, username, password,age, address))
             .enqueue(object : Callback<ResponseUserItem> {
                 override fun onResponse(
                     call: Call<ResponseUserItem>,
@@ -90,7 +94,7 @@ class ViewModelUser : ViewModel() {
         age: String,
         address: String
     ) {
-        RetrofitUser.instance.updateUser(id, DataUser(name, username, password, age, address))
+        api.updateUser(id, DataUser(name, username, password, age, address))
             .enqueue(object : Callback<ResponseUserItem> {
                 override fun onResponse(
                     call: Call<ResponseUserItem>,
@@ -111,7 +115,7 @@ class ViewModelUser : ViewModel() {
     }
 
     fun getUserById(id: String) {
-        RetrofitUser.instance.getUserById(id)
+        api.getUserById(id)
             .enqueue(object : Callback<ResponseUserItem> {
                 override fun onResponse(
                     call: Call<ResponseUserItem>,

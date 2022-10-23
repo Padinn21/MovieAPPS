@@ -10,8 +10,6 @@ data class ResponseUserItem(
     val age: String,
     @SerializedName("id")
     val id: String,
-    @SerializedName("nama")
-    val nama: String,
     @SerializedName("name")
     val name: String,
     @SerializedName("password")

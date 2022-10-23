@@ -1,4 +1,4 @@
-package com.example.movieapps.activity
+package com.example.movieapps.presentation.ui.activity
 
 import android.content.Context
 import android.content.Intent
@@ -7,14 +7,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.movieapps.R
+import com.example.movieapps.data.datastore.LoginDataStoreManager
+import com.example.movieapps.data.viewmodel.LoginViewModel
+import com.example.movieapps.data.viewmodel.ViewModelFactory
 import com.example.movieapps.data.viewmodel.ViewModelUser
 import com.example.movieapps.databinding.ActivityLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
-    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var pref: LoginDataStoreManager
+    private lateinit var viewModelLoginPref: LoginViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,11 +28,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
-        sharedPreferences = this.getSharedPreferences("datauser",
-            Context.MODE_PRIVATE)
-
         binding.btnRegister.setOnClickListener {
-            startActivity(Intent(this,RegisterActivity::class.java))
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
 
         binding.btnIndo.setOnClickListener {
@@ -38,30 +41,26 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
+            pref = LoginDataStoreManager(this)
+            viewModelLoginPref = ViewModelProvider(this, ViewModelFactory(pref))[LoginViewModel::class.java]
 
             val username = binding.etUsername.text.toString()
             val password = binding.etPassword.text.toString()
-            val saveUser = sharedPreferences.edit()
             val viewModel = ViewModelProvider(this).get(ViewModelUser::class.java)
             viewModel.callGetUser()
             viewModel.getLiveDataUser().observe(this, {
                 if (it != null) {
                     for (i in it) {
                         if (i.username == username && i.password == password) {
-                            saveUser.putString("id", i.id)
-                            saveUser.putString("name", i.name)
-                            saveUser.putString("username", i.username)
-                            saveUser.putString("password", i.password)
-                            saveUser.putString("address", i.address)
-                            saveUser.putString("age", i.age)
-                            saveUser.apply()
+                            viewModelLoginPref.setUserLogin(true)
+                            viewModelLoginPref.saveUser(i.id,i.name,i.username,i.password,i.age,i.address)
                             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                         }
                     }
                 } else {
                     Toast.makeText(
                         this@LoginActivity,
-                        "Gagal Login",
+                        "Login Failed",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

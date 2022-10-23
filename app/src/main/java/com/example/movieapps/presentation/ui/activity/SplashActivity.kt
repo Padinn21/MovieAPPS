@@ -1,4 +1,4 @@
-package com.example.movieapps.activity
+package com.example.movieapps.presentation.ui.activity
 
 import android.content.Context
 import android.content.Intent

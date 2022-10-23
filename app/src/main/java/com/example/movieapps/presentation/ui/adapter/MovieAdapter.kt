@@ -16,7 +16,7 @@ class MovieAdapter(var listMovie: List<ResponsePopularMovieItem>): RecyclerView.
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = ItemMovieBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        var view =ItemMovieBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(view)
     }
 

@@ -95,6 +95,24 @@
                 app:spanCount="5"
                 tools:listitem="@layout/item_movie" />
 
+            <ImageView
+                android:id="@+id/btn_favorite"
+                android:layout_width="39dp"
+                android:layout_height="47dp"
+                android:layout_marginEnd="32dp"
+                android:src="@drawable/ic_favorite_pink_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/txt_favo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="My Favorite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_favorite" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </FrameLayout>

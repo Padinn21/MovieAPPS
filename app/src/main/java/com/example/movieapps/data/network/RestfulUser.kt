@@ -7,15 +7,15 @@ import retrofit2.http.*
 
 interface RestfulUser {
 
-    @GET("user/")
+    @GET("users/")
     fun getAllUser(): Call<List<ResponseUserItem>>
 
-    @POST("user")
+    @POST("users")
     fun postUser(@Body request: DataUser): Call<ResponseUserItem>
 
-    @PUT("user/{id}")
+    @PUT("users/{id}")
     fun updateUser(@Path("id") id : String, @Body request: DataUser ): Call<ResponseUserItem>
 
-    @GET("user/{id}")
+    @GET("users/{id}")
     fun getUserById(@Path("id") id : String) : Call<ResponseUserItem>
 }
