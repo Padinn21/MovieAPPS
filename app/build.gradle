@@ -4,7 +4,10 @@ plugins {
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
+
 
 android {
     compileSdk 32
@@ -17,6 +20,18 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions("movie")
+    productFlavors {
+        premiumapp {
+            applicationIdSuffix ".premiumapp"
+            dimension "movie"
+        }
+        basicapp {
+            applicationIdSuffix ".basicapp"
+            dimension "movie"
+        }
     }
 
     buildTypes {
@@ -32,7 +47,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
+    packagingOptions {
+        exclude 'META-INF/LICENSE.md'
+        exclude 'META-INF/LICENSE-notice.md'
+    }
     buildFeatures {
         viewBinding true
     }
@@ -72,6 +90,18 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
 
+    implementation platform('com.google.firebase:firebase-bom:31.0.1')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.android.gms:play-services-auth:20.3.0'
+
+    implementation "io.mockk:mockk:1.13.1"
+    testImplementation "io.mockk:mockk:1.13.1"
+
     implementation 'androidx.room:room-runtime:2.4.3'
     kapt 'androidx.room:room-compiler:2.4.3'
+
+
+
 }

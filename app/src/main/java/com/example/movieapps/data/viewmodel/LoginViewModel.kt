@@ -8,7 +8,7 @@ import com.example.movieapps.data.datastore.LoginDataStoreManager
 import com.example.movieapps.data.model.UserPreferences
 import kotlinx.coroutines.launch
 
-class LoginViewModel(private val pref: LoginDataStoreManager): ViewModel() {
+class LoginViewModel(private val pref: com.example.movieapps.data.datastore.LoginDataStoreManager): ViewModel() {
     fun getUser(): LiveData<UserPreferences> {
         return pref.getUser().asLiveData()
     }

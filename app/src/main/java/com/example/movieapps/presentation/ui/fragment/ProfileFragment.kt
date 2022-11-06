@@ -27,14 +27,24 @@ import com.example.movieapps.data.datastore.LoginDataStoreManager
 import com.example.movieapps.data.viewmodel.*
 import com.example.movieapps.presentation.ui.activity.LoginActivity
 import com.example.movieapps.databinding.FragmentProfileBinding
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
 
+    lateinit var mGoogleSignInClient: GoogleSignInClient
+
+    private val auth by lazy {
+        FirebaseAuth.getInstance()
+    }
+
     private val REQUEST_CODE_PERMISSION = 100
     private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var pref: LoginDataStoreManager
+    private lateinit var pref: com.example.movieapps.data.datastore.LoginDataStoreManager
     private lateinit var viewModelLoginPref: LoginViewModel
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
@@ -51,10 +61,18 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+        mGoogleSignInClient= GoogleSignIn.getClient(this.requireActivity(),gso)
+
         sharedPreferences = requireActivity().applicationContext.getSharedPreferences("datauser",
             Context.MODE_PRIVATE)
-        pref = LoginDataStoreManager(this.requireActivity())
+        pref = com.example.movieapps.data.datastore.LoginDataStoreManager(this.requireActivity())
         binding.btnLogout.setOnClickListener {
+            mGoogleSignInClient.signOut()
             alertDialog()
         }
         getUserById()
@@ -107,18 +125,18 @@ class ProfileFragment : Fragment() {
 
         builder.setTitle("Logout")
 
-        builder.setMessage("Are You Sure Want To Quit?")
+        builder.setMessage("Apakah Anda yakin untuk Keluar ?")
 
-        builder.setNegativeButton("No"){dialogInterface, which ->
-            Toast.makeText(requireActivity(),"No", Toast.LENGTH_LONG).show()
+        builder.setNegativeButton("Tidak"){dialogInterface, which ->
+            Toast.makeText(requireActivity(),"Tidak", Toast.LENGTH_LONG).show()
         }
 
-        builder.setPositiveButton("Yes"){dialogInterface, which->
+        builder.setPositiveButton("Ya"){dialogInterface, which->
             startActivity(Intent(requireActivity(), LoginActivity::class.java))
             viewModelLoginPref = ViewModelProvider(this, ViewModelFactory(pref))[LoginViewModel::class.java]
             viewModelLoginPref.saveUser("","","","","","")
             viewModelLoginPref.setUserLogin(false)
-            Toast.makeText(requireActivity(),"Logout Sucessfully", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireActivity(),"Anda Logout", Toast.LENGTH_LONG).show()
         }
         val alertDialog: AlertDialog = builder.create()
         alertDialog.setCancelable(false)

@@ -36,7 +36,7 @@ class DetailMovieFragment : Fragment() {
         viewModel = ViewModelProvider(
             this
         ).get(FavoriteViewModel::class.java)
-        addFavorite()
+        toggleFavorite()
 
         if (arguments?.getSerializable("datadetail") != null) {
             val getDetailMovie = arguments?.getSerializable("datadetail") as ResponsePopularMovieItem
@@ -59,7 +59,7 @@ class DetailMovieFragment : Fragment() {
 
     }
 
-    fun addFavorite(){
+    fun toggleFavorite(){
         if (arguments?.getSerializable("datadetail") != null) {
             val getDetailMovie = arguments?.getSerializable("datadetail") as ResponsePopularMovieItem
             val id = getDetailMovie.id

@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.movieapps.data.datastore.LoginDataStoreManager
 
-class ViewModelFactory(private val pref: LoginDataStoreManager)
+class ViewModelFactory(private val pref: com.example.movieapps.data.datastore.LoginDataStoreManager)
     : ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

@@ -36,7 +36,7 @@ class RegisterActivity : AppCompatActivity() {
                 addUser(name,username,password,age, address)
                 startActivity(Intent(this, LoginActivity::class.java))
             } else if (password != repeatPassword) {
-                Toast.makeText(this, "Password Doesn't Match", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Password Tidak Sama", Toast.LENGTH_SHORT).show()
 
             }
         }
@@ -51,7 +51,7 @@ class RegisterActivity : AppCompatActivity() {
         viewModel.callPostUser(name,username, password,age,address)
         viewModel.postLiveDataUser().observe(this) {
             if (it != null) {
-                Toast.makeText(this, "Register Sucessfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Akun Berhasil Terdaftar", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, LoginActivity::class.java))
             }
         }

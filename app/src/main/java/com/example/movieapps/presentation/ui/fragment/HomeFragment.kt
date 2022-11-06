@@ -1,7 +1,6 @@
 package com.example.movieapps.presentation.ui.fragment
 
-import android.content.Context
-import android.content.SharedPreferences
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,10 +21,11 @@ import com.example.movieapps.presentation.ui.adapter.MovieAdapter
 import com.example.movieapps.presentation.ui.adapter.SerialAdapter
 
 class HomeFragment : Fragment() {
-    private lateinit var pref: LoginDataStoreManager
+    private lateinit var pref: com.example.movieapps.data.datastore.LoginDataStoreManager
     private lateinit var viewModelLoginPref: LoginViewModel
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,13 +38,14 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        pref = LoginDataStoreManager(this.requireActivity())
+
+        pref = com.example.movieapps.data.datastore.LoginDataStoreManager(this.requireActivity())
         viewModelLoginPref = ViewModelProvider(this, ViewModelFactory(pref))[LoginViewModel::class.java]
         viewModelLoginPref.getUser().observe(this.requireActivity(),{
             binding.tvSayHello.text = "Welcome, " + it.name
         })
-        showDataMovie()
-        showDataSerial()
+        showDataMoviePopoular()
+        showDataSerialPopular()
 
         binding.btnFavorite.setOnClickListener {
             this.findNavController().navigate(R.id.action_homeFragment_to_favoriteFragment)
@@ -52,7 +53,7 @@ class HomeFragment : Fragment() {
     }
 
 
-    fun showDataMovie() {
+    fun showDataMoviePopoular() {
         val viewModel = ViewModelProvider(this).get(ViewModelPopularMovie::class.java)
         viewModel.callApiPopularMovie{movies: List<ResponsePopularMovieItem> ->
             binding.rvMovie1.adapter = MovieAdapter(movies)
@@ -61,7 +62,7 @@ class HomeFragment : Fragment() {
         binding.rvMovie1.setHasFixedSize(true)
     }
 
-    fun showDataSerial() {
+    fun showDataSerialPopular() {
         val viewModel = ViewModelProvider(this).get(ViewModelPopularMovie::class.java)
         viewModel.callApiTvSerial{serial: List<SerialResponseItem> ->
             binding.rvMovie2.adapter = SerialAdapter(serial)

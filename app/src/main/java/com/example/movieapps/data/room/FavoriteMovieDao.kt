@@ -1,23 +1,27 @@
 package com.example.movieapps.data.room
 
+import android.content.Context
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.example.movieapps.data.model.FavoriteEntity
 
-@Dao
-interface FavoriteMovieDao {
-    @Query("SELECT * FROM FavoriteEntity ORDER BY id DESC")
-    fun getDataFavorite() : LiveData<List<FavoriteEntity>>
+@Database(entities = [FavoriteEntity::class], version = 1,exportSchema = false)
+abstract class FavoriteDatabase : RoomDatabase() {
+    abstract fun favoriteMovieDao(): FavoriteMovieDao
 
-    @Insert
-    fun insertFavorite(movie: FavoriteEntity)
-
-    @Delete
-    fun deleteFavorite(movie: FavoriteEntity)
-
-    @Query("SELECT * FROM FavoriteEntity WHERE id = :id")
-    fun checkMovie(id: Int) : Int
+    companion object {
+        @Volatile
+        private var INSTANCE: FavoriteDatabase? = null
+        @JvmStatic
+        fun getDatabase(context: Context): FavoriteDatabase {
+            if (INSTANCE == null) {
+                synchronized(FavoriteDatabase::class.java) {
+                    INSTANCE = Room.databaseBuilder(context.applicationContext,
+                        FavoriteDatabase::class.java, "favorite_db")
+                        .build()
+                }
+            }
+            return INSTANCE as FavoriteDatabase
+        }
+    }
 }
