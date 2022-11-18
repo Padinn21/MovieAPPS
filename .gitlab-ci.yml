@@ -26,10 +26,10 @@ before_script:
   - set -o pipefail
 
 stages:
-  - build_release_android
+  - build_debug_android
 
 build-release_android:
-  stage: build_release_android
+  stage: build_debug_android
   script:
     - ./gradlew lint
     - ./gradlew build
