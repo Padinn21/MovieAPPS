@@ -28,7 +28,7 @@ before_script:
 stages:
   - build_debug_android
 
-build-release_android:
+build-debug_android:
   stage: build_debug_android
   script:
     - ./gradlew lint
