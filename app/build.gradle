@@ -9,7 +9,17 @@ plugins {
 }
 
 
+
+
 android {
+    signingConfigs {
+        release {
+            storeFile file('D:\\KULIAH\\MBKM\\LAndro\\MovieApps\\Untitled.jks')
+            storePassword 'p4ssword'
+            keyAlias 'Key0'
+            keyPassword 'p4ssword'
+        }
+    }
     compileSdk 32
 
     defaultConfig {
@@ -18,7 +28,6 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -38,6 +47,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
