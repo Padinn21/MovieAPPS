@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.movieapps.data.datastore.LoginDataStoreManager
 import com.example.movieapps.data.model.UserPreferences
 import kotlinx.coroutines.launch
 

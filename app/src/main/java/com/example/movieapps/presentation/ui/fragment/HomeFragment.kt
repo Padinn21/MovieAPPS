@@ -1,6 +1,7 @@
 package com.example.movieapps.presentation.ui.fragment
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieapps.R
-import com.example.movieapps.data.datastore.LoginDataStoreManager
 import com.example.movieapps.data.model.ResponsePopularMovieItem
 import com.example.movieapps.data.model.SerialResponseItem
 import com.example.movieapps.data.viewmodel.LoginViewModel
@@ -36,6 +36,7 @@ class HomeFragment : Fragment() {
         return view
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

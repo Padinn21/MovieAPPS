@@ -23,7 +23,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.movieapps.R
-import com.example.movieapps.data.datastore.LoginDataStoreManager
 import com.example.movieapps.data.viewmodel.*
 import com.example.movieapps.presentation.ui.activity.LoginActivity
 import com.example.movieapps.databinding.FragmentProfileBinding

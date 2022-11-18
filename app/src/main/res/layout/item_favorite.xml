@@ -8,7 +8,8 @@
     app:cardCornerRadius="15dp"
     app:cardElevation="5dp"
     android:layout_margin="5dp"
-    android:layout_marginTop="5dp">
+    android:layout_marginTop="5dp"
+    tools:ignore="ContentDescription">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -35,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:maxLines="1"
+            tools:ignore="HardcodedText"
             android:text="TITLE"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -48,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            tools:ignore="HardcodedText"
             android:text="7,5"
             android:textStyle="bold"
             android:textColor="@color/white"

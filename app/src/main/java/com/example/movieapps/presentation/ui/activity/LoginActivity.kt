@@ -1,6 +1,7 @@
 package com.example.movieapps.presentation.ui.activity
 
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -107,6 +108,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("AppBundleLocaleChanges")
     private fun setLocale(lang: String) {
         val myLocale = Locale(lang)
         val res = resources

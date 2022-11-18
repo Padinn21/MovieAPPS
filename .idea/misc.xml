@@ -16,20 +16,21 @@
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/main/res/layout/activity_splash.xml" value="0.2223731884057971" />
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/main/res/layout/fragment_detail_movie.xml" value="0.2223731884057971" />
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/main/res/layout/fragment_favorite.xml" value="0.2223731884057971" />
-        <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/main/res/layout/fragment_profile.xml" value="0.136" />
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/main/res/layout/item_favorite.xml" value="0.2223731884057971" />
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/main/res/layout/item_movie.xml" value="0.176" />
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/main/res/menu/menu_bottom.xml" value="0.27447916666666666" />
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/main/res/xml/file_paths.xml" value="0.1676912568306011" />
-        <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/premiumapp/res/layout/activity_login.xml" value="0.23278985507246377" />
+        <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/premiumapp/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/premiumapp/res/layout/activity_main.xml" value="0.23278985507246377" />
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/premiumapp/res/layout/activity_register.xml" value="0.23278985507246377" />
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/premiumapp/res/layout/activity_splash.xml" value="0.23278985507246377" />
+        <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/premiumapp/res/layout/fragment_detail_movie.xml" value="0.1265625" />
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/premiumapp/res/layout/fragment_favorite.xml" value="0.23278985507246377" />
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/premiumapp/res/layout/fragment_home.xml" value="0.15885416666666666" />
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/premiumapp/res/layout/fragment_profile.xml" value="0.23278985507246377" />
-        <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/premiumapp/res/layout/item_favorite.xml" value="0.15885416666666666" />
+        <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/premiumapp/res/layout/item_favorite.xml" value="0.1" />
         <entry key="..\:/KULIAH/MBKM/LAndro/MovieApps/app/src/premiumapp/res/layout/item_movie.xml" value="0.23278985507246377" />
       </map>
     </option>

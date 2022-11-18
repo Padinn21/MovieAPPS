@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import com.example.movieapps.data.model.DataUser
 import com.example.movieapps.data.model.ResponseUserItem
 import com.example.movieapps.data.network.RestfulUser
-import com.example.movieapps.data.network.RetrofitUser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
 import retrofit2.Callback

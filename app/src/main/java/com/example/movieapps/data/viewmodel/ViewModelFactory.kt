@@ -2,7 +2,6 @@ package com.example.movieapps.data.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.movieapps.data.datastore.LoginDataStoreManager
 
 class ViewModelFactory(private val pref: com.example.movieapps.data.datastore.LoginDataStoreManager)
     : ViewModelProvider.NewInstanceFactory() {

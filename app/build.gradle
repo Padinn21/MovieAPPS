@@ -14,10 +14,10 @@ plugins {
 android {
     signingConfigs {
         release {
-            storeFile file('D:\\KULIAH\\MBKM\\LAndro\\MovieApps\\Untitled.jks')
-            storePassword 'p4ssword'
-            keyAlias 'Key0'
-            keyPassword 'p4ssword'
+//            storeFile file('D:\\KULIAH\\MBKM\\LAndro\\MovieApps\\Untitled.jks')
+//            storePassword 'p4ssword'
+//            keyAlias 'Key0'
+//            keyPassword 'p4ssword'
         }
     }
     compileSdk 32
@@ -57,6 +57,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    lint {
+        disable 'HardcodedText', 'GradleDependency'
+        quiet false
+        ignoreWarnings false
+    }
     packagingOptions {
         exclude 'META-INF/LICENSE.md'
         exclude 'META-INF/LICENSE-notice.md'
@@ -64,6 +70,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+
 }
 
 dependencies {

@@ -1,7 +1,6 @@
 package com.example.movieapps.data.room
 
 import android.content.Context
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.movieapps.data.model.FavoriteEntity
 

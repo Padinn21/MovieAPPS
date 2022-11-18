@@ -1,5 +1,6 @@
 package com.example.movieapps.presentation.ui.activity
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -11,6 +12,7 @@ import com.example.movieapps.R
 import com.example.movieapps.data.viewmodel.LoginViewModel
 import com.example.movieapps.data.viewmodel.ViewModelFactory
 
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var pref: com.example.movieapps.data.datastore.LoginDataStoreManager
