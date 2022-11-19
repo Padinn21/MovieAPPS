@@ -14,10 +14,10 @@ plugins {
 android {
     signingConfigs {
         release {
-//            storeFile file('D:\\KULIAH\\MBKM\\LAndro\\MovieApps\\Untitled.jks')
-//            storePassword 'p4ssword'
-//            keyAlias 'Key0'
-//            keyPassword 'p4ssword'
+            storeFile file('D:\\KULIAH\\MBKM\\LAndro\\MovieApps\\Untitled.jks')
+            storePassword 'p4ssword'
+            keyAlias 'Key0'
+            keyPassword 'p4ssword'
         }
     }
     compileSdk 32
