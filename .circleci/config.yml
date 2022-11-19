@@ -17,9 +17,9 @@ jobs:
       - run:
           name: chmod permission
           command: chmod +x ./gradlew
-      - run:
-          name:  Run lint
-          command: ./gradlew lint
+#      - run:
+#          name:  Run lint
+#          command: ./gradlew lint
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
