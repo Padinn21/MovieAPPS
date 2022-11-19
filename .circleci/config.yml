@@ -18,7 +18,7 @@ jobs:
           name: chmod permission
           command: chmod +x ./gradlew
       - run:
-          name:  Run Lint
+          name:  Run lint
           command: ./gradlew lint
 
 # Invoke jobs via workflows
