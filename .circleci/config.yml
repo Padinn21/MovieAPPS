@@ -15,8 +15,8 @@ jobs:
     steps:
       - checkout
       - run:
-          - chmod permission
-          - command: chmod +x ./gradlew
+          name: chmod permission
+          command: chmod +x ./gradlew
       - run:
           name:  Run Test
           command: ./gradlew lint
@@ -24,7 +24,7 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  build-workflow:
     jobs:
       - build
 
