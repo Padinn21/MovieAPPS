@@ -15,7 +15,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Run Lint"
+          name: "run lint"
           command: ./gradlew lint
 
 # Invoke jobs via workflows
