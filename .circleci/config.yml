@@ -17,11 +17,11 @@ jobs:
       - run:
           name: chmod permission
           command: chmod +x ./gradlew
-      - run:
-          name:  Run lint
-          command: ./gradlew lint
-      - store_test_results:
-          path: app/build/test-results
+#      - run:
+#          name:  Run lint
+#          command: ./gradlew lint
+#      - store_test_results:
+#          path: app/build/test-results
       - store_artifacts:
           path: app/build/outputs/apk/debug1
           destination: artifact-file
