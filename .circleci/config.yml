@@ -17,21 +17,30 @@ jobs:
       - run:
           name: chmod permission
           command: chmod +x ./gradlew
-#      - run:
-#          name:  Run lint
-#          command: ./gradlew lint
-#      - run:
-#          name: Build App
-#          command: ./gradlew build
-#      - run:
-#          name: Assemble
-#          command: ./gradlew assemble debug
-      - store_artifacts:
-          path: app/build/outputs/apk/debug
-          destination: artifact-file
       - run:
           name: Download Depedency
           command: ./gradlew androidDepedencies
+      - run:
+          name:  Run lint
+          command: ./gradlew lint
+      - store_test_result:
+          path: app/build/test-result
+      - store_artifacts:
+          path: app/build/outputs/apk/debug1
+          destination: artifact-file
+      - run:
+          name: Build App
+          command: ./gradlew build
+      - store_artifacts:
+          path: app/build/outputs/apk/debug2
+          destination: artifact-file
+      - run:
+          name: Assemble
+          command: ./gradlew assemble
+      - store_artifacts:
+          path: app/build/outputs/apk/debug3
+          destination: artifact-file
+
 
 
 # Invoke jobs via workflows
