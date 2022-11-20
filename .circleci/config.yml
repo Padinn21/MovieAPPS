@@ -18,9 +18,6 @@ jobs:
           name: chmod permission
           command: chmod +x ./gradlew
       - run:
-          name: Download Depedency
-          command: ./gradlew androidDepedencies
-      - run:
           name:  Run lint
           command: ./gradlew lint
       - store_test_results:
